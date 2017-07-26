@@ -32,7 +32,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 dependencies {
-     compile 'io.github.snarks:RxProperty:master-SNAPSHOT'
+     compile 'io.github.snarks:RxProperty:1.0'
 }
 ```
 (_`com.github.snarks` will also work_)
