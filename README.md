@@ -7,7 +7,7 @@ A [Delegated Property](https://kotlinlang.org/docs/reference/delegated-propertie
 Code:
 ```kotlin
 val fooProperty = RxProperty("initial")
-val foo by fooProperty
+var foo by fooProperty
 
 fooProperty.subscribe(::println)
 foo = "hello"

@@ -27,7 +27,7 @@ import kotlin.reflect.KProperty
  * **Example:**
  * ```kotlin
  * val fooProperty = RxProperty("initial")
- * val foo by fooProperty
+ * var foo by fooProperty
  *
  * fooProperty.subscribe(::println)
  * foo = "hello"
