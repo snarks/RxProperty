@@ -36,15 +36,11 @@ import kotlin.reflect.KProperty
  * // this will print 'hello', 'hello' and 'world'
  * ```
  *
- * This class uses an **unsynchronized**, **non-volatile** field to store its value. So you may need to use external
- * synchronization if you need to make multiple assignments from more than one thread.
+ * This class is an unbounded observable, so it will never emit `onError` or `onComplete`. It will emit `onNext`
+ * immediately after assigning a value to it.
  *
- * This class uses a [PublishSubject] for its subscribers. So even if it's not safe to _assign_ and _read_ values from
- * multiple threads, you can still _subscribe_ and do the usual RxJava operators safely.
- *
- * Every time a value is assigned to this property, it will emit that value to its subscribers (even if that value is
- * identical to the last one). Note that terminal signals (i.e. `onComplete` and `onError`) will never get emitted by
- * this class.
+ * It's **not** safe to _assign_ values to `RxProperty` from multiple threads, but the usual RxJava operations are
+ * thread-safe.
  */
 class RxProperty<T>(initialValue: T) : Observable<T>(), ReadWriteProperty<Any?, T> {
 
